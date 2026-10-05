@@ -4,7 +4,7 @@
 
 @section('content')
 
-<!-- <section class="min-h-[70vh] max-w-7xl mx-auto w-full grid grid-cols-2 gap-12 items-center px-6"> -->
+<!-- inicio -->
 <section class="min-h-[80vh] grid grid-cols-2 gap-12 items-center px-6">
 
     <div>
@@ -36,6 +36,7 @@
 
 </section>
 
+<!-- Sobre o Personal -->
 <section id="sobre" class="px-6 py-16">
     <div class="max-w-7xl mx-auto grid grid-cols-2 gap-12 items-center">
 
@@ -93,7 +94,7 @@
     </div>
 </section>
 
-
+<!-- Serviços -->
 <section id="servicos" class="px-6 py-20 bg-gray-50">
 
     <div class="max-w-7xl mx-auto">
@@ -149,4 +150,25 @@
 
 </section>
 
+<!-- Botão voltar ao topo -->
+<button
+    id="btn-topo"
+    onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    class="hidden fixed bottom-6 right-6 z-50 bg-green-500 text-black
+           w-12 h-12 rounded-full font-bold text-xl
+           shadow-lg hover:bg-green-400 hover:scale-110 transition">
+    ↑
+</button>
+
+<script>
+    const btnTopo = document.getElementById('btn-topo');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+            btnTopo.classList.remove('hidden');
+        } else {
+            btnTopo.classList.add('hidden');
+        }
+    });
+</script>
 @endsection
