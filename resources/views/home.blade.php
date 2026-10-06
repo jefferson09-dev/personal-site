@@ -147,7 +147,6 @@
         </div>
 
     </div>
-
 </section>
 
 <!-- Botão voltar ao topo -->
@@ -171,4 +170,145 @@
         }
     });
 </script>
+
+<section id="resultados" class="px-6 py-20">
+
+    <div class="max-w-7xl mx-auto">
+
+        <div class="text-center">
+            <h2 class="text-4xl font-bold text-gray-900">
+                Resultados
+            </h2>
+
+            <p class="mt-4 text-lg text-gray-600">
+                Evolução que você consegue acompanhar.
+            </p>
+        </div>
+
+        <div class="mt-12 grid grid-cols-3 gap-8">
+
+            <div class="text-center p-8 bg-gray-50 rounded-xl">
+                <div class="text-4xl font-bold text-green-500">
+                    +50
+                </div>
+
+                <h3 class="mt-3 text-xl font-bold text-gray-900">
+                    Alunos acompanhados
+                </h3>
+
+                <p class="mt-2 text-gray-600">
+                    Pessoas acompanhadas durante sua evolução.
+                </p>
+            </div>
+
+            <div class="text-center p-8 bg-gray-50 rounded-xl">
+                <div class="text-4xl font-bold text-green-500">
+                    +120
+                </div>
+
+                <h3 class="mt-3 text-xl font-bold text-gray-900">
+                    Treinos realizados
+                </h3>
+
+                <p class="mt-2 text-gray-600">
+                    Treinos planejados e acompanhados.
+                </p>
+            </div>
+
+            <div class="text-center p-8 bg-gray-50 rounded-xl">
+                <div class="text-4xl font-bold text-green-500">
+                    95%
+                </div>
+
+                <h3 class="mt-3 text-xl font-bold text-gray-900">
+                    Satisfação
+                </h3>
+
+                <p class="mt-2 text-gray-600">
+                    Foco em experiência e resultados.
+                </p>
+            </div>
+
+        </div>
+
+        <p class="mt-12 text-center text-xl font-semibold text-gray-900">
+            Seu resultado começa com um plano.
+            Sua evolução continua com acompanhamento.
+        </p>
+
+    </div>
+
+</section>
+
+<section id="contato" class="px-6 py-24 bg-gray-50">
+
+    <div class="max-w-7xl mx-auto">
+
+        <div class="text-center">
+            <h2 class="text-4xl font-bold text-gray-900">
+                Entre em contato
+            </h2>
+
+            <p class="mt-4 text-lg text-gray-600">
+                Vamos conversar sobre seus objetivos e começar sua evolução.
+            </p>
+        </div>
+
+        <!-- <div class="mt-12 max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-sm"> -->
+        <div class="mt-12 max-w-xl mx-auto bg-white p-6 rounded-2xl shadow-sm">
+
+            <form>
+
+                <div>
+                    <label class="block text-sm font-semibold text-gray-900">
+                        Nome
+                    </label>
+
+                    <input
+                        type="text"
+                        placeholder="Seu nome"
+                        class="mt-2 w-full px-4 py-3 border border-gray-300 rounded-lg
+                               focus:outline-none focus:ring-2 focus:ring-green-500">
+                </div>
+
+                <div class="mt-5">
+                    <label class="block text-sm font-semibold text-gray-900">
+                        E-mail
+                    </label>
+
+                    <input
+                        type="email"
+                        placeholder="seu@email.com"
+                        class="mt-2 w-full px-4 py-3 border border-gray-300 rounded-lg
+                               focus:outline-none focus:ring-2 focus:ring-green-500">
+                </div>
+
+                <div class="mt-5">
+                    <label class="block text-sm font-semibold text-gray-900">
+                        Mensagem
+                    </label>
+
+                    <textarea
+                        rows="4"
+                        placeholder="Conte um pouco sobre seu objetivo..."
+                        class="mt-2 w-full px-4 py-3 border border-gray-300 rounded-lg
+                               focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+                </div>
+
+                <button
+                    type="submit"
+                    class="mt-6 w-full bg-green-500 text-black py-3 rounded-lg
+                           font-semibold hover:bg-green-400 hover:scale-[1.02]
+                           transition">
+                    Enviar mensagem
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
 @endsection
