@@ -257,7 +257,8 @@
         <!-- <div class="mt-12 max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-sm"> -->
         <div class="mt-12 max-w-xl mx-auto bg-white p-6 rounded-2xl shadow-sm">
 
-            <form>
+            <form action="/contato" method="POST">
+                @csrf
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-900">
@@ -266,6 +267,7 @@
 
                     <input
                         type="text"
+                        name="nome"
                         placeholder="Seu nome"
                         class="mt-2 w-full px-4 py-3 border border-gray-300 rounded-lg
                                focus:outline-none focus:ring-2 focus:ring-green-500">
@@ -278,6 +280,7 @@
 
                     <input
                         type="email"
+                        name="email"
                         placeholder="seu@email.com"
                         class="mt-2 w-full px-4 py-3 border border-gray-300 rounded-lg
                                focus:outline-none focus:ring-2 focus:ring-green-500">
@@ -289,6 +292,7 @@
                     </label>
 
                     <textarea
+                        name="mensagem"
                         rows="4"
                         placeholder="Conte um pouco sobre seu objetivo..."
                         class="mt-2 w-full px-4 py-3 border border-gray-300 rounded-lg
