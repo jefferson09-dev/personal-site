@@ -8,8 +8,17 @@ class ContatoController extends Controller
 {
     public function enviar(Request $request)
     {
-        return $request->input('nome') . ', sua mensagem foi recebida com sucesso!';
-        // dd($request->all());
+        $request->validate(
+            [
+                'nome' => 'required|string|min:3|max:100',
+                'email' => 'required|email',
+                'mensagem' => 'required|string|min:5|max:2000',
+            ],
+            [],
+            [],
+        );
+
+        return redirect('/#contato')
+            ->with('sucesso', 'Sua mensagem foi recebida com sucesso!');
     }
 }
-  
