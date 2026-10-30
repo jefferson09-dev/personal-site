@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contato;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -34,7 +35,22 @@ class ContatoController extends Controller
                 ->withInput();
         }
 
+        Contato::create([
+            'nome' => $request->input('nome'),
+            'email' => $request->input('email'),
+            'mensagem' => $request->input('mensagem'),
+        ]);
+
         return redirect('/#contato')
             ->with('sucesso', 'Sua mensagem foi recebida com sucesso!');
+    }
+
+    public function index()
+    {
+        $contatos = Contato::latest()->get();
+
+        $totalContatos = Contato::count();
+
+        return view('admin.contatos', compact('contatos', 'totalContatos'));
     }
 }

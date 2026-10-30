@@ -7,4 +7,6 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::post('/contato', [ContatoController::class, 'enviar']);  
+Route::post('/contato', [ContatoController::class, 'enviar']);
+
+Route::get('/admin/contatos', [ContatoController::class, 'index']);
