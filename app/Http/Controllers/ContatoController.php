@@ -8,6 +8,15 @@ use Illuminate\Support\Facades\Validator;
 
 class ContatoController extends Controller
 {
+    public function destroy(Contato $contato)
+    {
+        $contato->delete();
+
+        return redirect()
+            ->route('admin.contatos.index')
+            ->with('sucesso', 'Contato excluído com sucesso!');
+    }
+
     public function enviar(Request $request)
     {
         $validator = Validator::make(

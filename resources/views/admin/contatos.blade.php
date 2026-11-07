@@ -13,13 +13,31 @@
 
     <div class="max-w-5xl mx-auto">
 
-        <h1 class="text-3xl font-bold text-gray-900 mb-2">
+        <!-- <h1 class="text-3xl font-bold text-gray-900 mb-2">
             Contatos recebidos
         </h1>
 
         <p class="text-gray-600 mb-8">
             Mensagens enviadas pelo formulário do site.
-        </p>
+        </p> -->
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+
+            <div>
+                <h1 class="text-3xl font-bold text-gray-900 mb-2">
+                    Painel administrativo
+                </h1>
+
+                <p class="text-gray-600">
+                    Gerencie as mensagens recebidas pelo site.
+                </p>
+            </div>
+
+            <a href="/"
+                class="inline-block bg-gray-900 hover:bg-gray-700 text-white px-5 py-3 rounded-lg text-center transition">
+                Voltar ao site
+            </a>
+
+        </div>
 
         <div class="bg-white rounded-xl shadow-sm p-5 mb-6">
             <p class="text-gray-500 text-sm">
@@ -30,7 +48,6 @@
                 {{ $totalContatos }}
             </p>
         </div>
-        </p>
 
         @forelse ($contatos as $contato)
 
@@ -52,6 +69,19 @@
                 Recebido em:
                 {{ $contato->created_at->format('d/m/Y H:i') }}
             </p>
+
+            <form action="{{ route('admin.contatos.destroy', $contato->id) }}"
+                method="POST"
+                onsubmit="return confirm('Tem certeza que deseja excluir este contato?')">
+
+                @csrf
+                @method('DELETE')
+
+                <button type="submit"
+                    class="mt-4 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg">
+                    Excluir contato
+                </button>
+            </form>
 
         </div>
 

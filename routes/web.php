@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Support\Facades\Route;
@@ -7,6 +8,10 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/admin/contatos', [ContatoController::class, 'index'])
+    ->name('admin.contatos.index');
+
 Route::post('/contato', [ContatoController::class, 'enviar']);
 
-Route::get('/admin/contatos', [ContatoController::class, 'index']);
+Route::delete('/admin/contatos/{contato}', [ContatoController::class, 'destroy'])
+    ->name('admin.contatos.destroy');
