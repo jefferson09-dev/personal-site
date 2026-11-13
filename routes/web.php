@@ -15,3 +15,8 @@ Route::post('/contato', [ContatoController::class, 'enviar']);
 
 Route::delete('/admin/contatos/{contato}', [ContatoController::class, 'destroy'])
     ->name('admin.contatos.destroy');
+
+Route::patch(
+    '/admin/contatos/{contato}/lida',
+    [ContatoController::class, 'marcarComoLida']
+)->name('admin.contatos.lida');

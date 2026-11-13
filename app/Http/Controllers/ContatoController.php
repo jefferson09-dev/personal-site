@@ -62,4 +62,15 @@ class ContatoController extends Controller
 
         return view('admin.contatos', compact('contatos', 'totalContatos'));
     }
+
+    public function marcarComoLida(Contato $contato)
+    {
+        $contato->update([
+            'lida' => true,
+        ]);
+
+        return redirect()
+            ->route('admin.contatos.index')
+            ->with('sucesso', 'Contato marcado como lido!');
+    }
 }

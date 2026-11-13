@@ -13,13 +13,7 @@
 
     <div class="max-w-5xl mx-auto">
 
-        <!-- <h1 class="text-3xl font-bold text-gray-900 mb-2">
-            Contatos recebidos
-        </h1>
 
-        <p class="text-gray-600 mb-8">
-            Mensagens enviadas pelo formulário do site.
-        </p> -->
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
 
             <div>
@@ -70,6 +64,30 @@
                 {{ $contato->created_at->format('d/m/Y H:i') }}
             </p>
 
+            {{-- MARCAR COMO LIDA --}}
+            @if (!$contato->lida)
+
+            <form action="{{ route('admin.contatos.lida', $contato->id) }}"
+                method="POST">
+
+                @csrf
+                @method('PATCH')
+
+                <button type="submit"
+                    class="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">
+                    Marcar como lida
+                </button>
+            </form>
+
+            @else
+
+            <span class="mt-4 inline-block text-green-600 font-semibold">
+                ✓ Mensagem lida
+            </span>
+
+            @endif
+
+            {{-- EXCLUIR CONTATO --}}
             <form action="{{ route('admin.contatos.destroy', $contato->id) }}"
                 method="POST"
                 onsubmit="return confirm('Tem certeza que deseja excluir este contato?')">

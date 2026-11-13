@@ -22,9 +22,8 @@
             e evolua com acompanhamento personalizado.
         </p>
 
-        <a href="#contato"
-            class="self-start inline-block mt-8 bg-green-500 text-black px-6 py-3 rounded-lg font-semibold hover:bg-green-400 transition hover:scale-105">
-            Começar agora
+        <a href="#contato" class="mt-6 inline-flex items-center justify-center bg-green-500 hover:bg-green-400 text-slate-950 font-bold px-6 py-3 rounded-xl shadow-lg shadow-green-500/20 hover:shadow-green-500/40 hover:scale-105 active:scale-95 transition-all duration-300">
+            Agendar agora
         </a>
 
     </div>

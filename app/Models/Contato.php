@@ -10,5 +10,10 @@ class Contato extends Model
         'nome',
         'email',
         'mensagem',
+        'lida', 
+    ];
+
+    protected $casts = [
+        'lida' => 'boolean',
     ];
 }
