@@ -54,13 +54,32 @@ class ContatoController extends Controller
             ->with('sucesso', 'Sua mensagem foi recebida com sucesso!');
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $contatos = Contato::latest()->get();
+        $filtro = $request->query('filtro', 'todos');
+
+        $consulta = Contato::query();
+
+        if ($filtro === 'nao_lidas') {
+            $consulta->where('lida', false);
+        }
+
+        if ($filtro === 'lidas') {
+            $consulta->where('lida', true);
+        }
+
+        $contatos = $consulta->latest()->get();
 
         $totalContatos = Contato::count();
 
-        return view('admin.contatos', compact('contatos', 'totalContatos'));
+        $contatosNaoLidos = Contato::where('lida', false)->count();
+
+        return view('admin.contatos', compact(
+            'contatos',
+            'totalContatos',
+            'contatosNaoLidos',
+            'filtro'
+        ));
     }
 
     public function marcarComoLida(Contato $contato)

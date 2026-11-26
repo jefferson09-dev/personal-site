@@ -31,17 +31,75 @@
                 Voltar ao site
             </a>
 
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+
+                <button type="submit"
+                    class="bg-red-500 hover:bg-red-600 text-white px-5 py-3 rounded-lg transition">
+                    Sair
+                </button>
+            </form>
+
         </div>
 
-        <div class="bg-white rounded-xl shadow-sm p-5 mb-6">
-            <p class="text-gray-500 text-sm">
-                Total de mensagens recebidas
-            </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
 
-            <p class="text-3xl font-bold text-green-600 mt-1">
-                {{ $totalContatos }}
-            </p>
+            {{-- TOTAL DE CONTATOS --}}
+            <div class="bg-white rounded-xl shadow-sm p-5">
+                <p class="text-gray-500 text-sm">
+                    Total de mensagens recebidas
+                </p>
+
+                <p class="text-3xl font-bold text-green-600 mt-1">
+                    {{ $totalContatos }}
+                </p>
+            </div>
+
+            {{-- MENSAGENS NÃO LIDAS --}}
+            <div class="bg-white rounded-xl shadow-sm p-5">
+                <p class="text-gray-500 text-sm">
+                    Mensagens não lidas
+                </p>
+
+                <p class="text-3xl font-bold text-red-500 mt-1">
+                    {{ $contatosNaoLidos }}
+                </p>
+            </div>
+
         </div>
+
+
+        {{-- FILTROS DE MENSAGENS --}}
+        <div class="bg-white rounded-xl shadow-sm p-4 mb-6">
+
+            <h2 class="text-sm font-semibold text-gray-700 mb-3">
+                Filtrar mensagens
+            </h2>
+
+            <div class="flex flex-wrap gap-2">
+
+                <a href="{{ route('admin.contatos.index', ['filtro' => 'todos']) }}"
+                    class="px-4 py-2 rounded-lg text-sm font-medium
+            {{ $filtro === 'todos' ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200' }}">
+                    Todas
+                </a>
+
+                <a href="{{ route('admin.contatos.index', ['filtro' => 'nao_lidas']) }}"
+                    class="px-4 py-2 rounded-lg text-sm font-medium
+            {{ $filtro === 'nao_lidas' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200' }}">
+                    Não lidas
+                </a>
+
+                <a href="{{ route('admin.contatos.index', ['filtro' => 'lidas']) }}"
+                    class="px-4 py-2 rounded-lg text-sm font-medium
+            {{ $filtro === 'lidas' ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200' }}">
+                    Lidas
+                </a>
+
+            </div>
+
+        </div>
+
 
         @forelse ($contatos as $contato)
 
